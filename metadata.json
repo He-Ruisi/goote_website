@@ -1,0 +1,6 @@
+{
+  "name": "Goote 枝络 - 瑞士军刀级全链条写作利器",
+  "description": "Goote（枝络）是一把缝合了诸多小而美利器的全链条写作瑞士军刀。快速录入、语音速记、本地优先、自定义AI与插件生态，完全开源免费。",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
