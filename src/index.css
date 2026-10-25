@@ -3,79 +3,87 @@
 @layer base {
   body {
     font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    color: #111111;
-    background-color: #ffffff;
+    color: #808080;
+    background-color: #F0F0F4;
   }
 }
 
-/* Keyviz Dot Grid Matrix Background */
-.bg-keyviz-dots {
-  background-color: #ffffff;
-  background-image: radial-gradient(#d4d4d8 1.2px, transparent 1.2px);
-  background-size: 26px 26px;
+/* 方格背景 (Square Grid on #F0F0F4) */
+.bg-keyviz-grid {
+  background-color: #F0F0F4;
+  background-image: 
+    linear-gradient(to right, rgba(128, 128, 128, 0.15) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(128, 128, 128, 0.15) 1px, transparent 1px);
+  background-size: 24px 24px;
 }
 
-/* Keyviz Signature 3D Tactile Keycap */
+/* 拟物 3D 键帽 (用 #808080 为基准结构，#F0F0F4 为面层) */
 .keyviz-keycap {
   position: relative;
   display: inline-flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: #ffffff;
-  border: 2px solid #18181b;
-  border-bottom: 6px solid #18181b;
+  background: #F0F0F4;
+  border: 2px solid #808080;
+  border-bottom: 6px solid #808080;
   border-radius: 16px;
-  box-shadow: 0 12px 24px -4px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 10px 20px -4px rgba(128, 128, 128, 0.25);
   font-weight: 700;
-  color: #18181b;
-  transition: transform 0.15s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.15s ease;
+  color: #808080;
+  transition: transform 0.15s cubic-bezier(0.2, 0, 0.2, 1), box-shadow 0.15s ease, border-bottom-width 0.15s ease;
   user-select: none;
 }
 
 .keyviz-keycap:hover {
   transform: translateY(-2px);
-  box-shadow: 0 16px 28px -4px rgba(0, 0, 0, 0.18);
+  box-shadow: 0 14px 24px -4px rgba(128, 128, 128, 0.35);
 }
 
 .keyviz-keycap:active {
   transform: translateY(3px);
   border-bottom-width: 3px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 8px rgba(128, 128, 128, 0.2);
 }
 
-/* Keycap dark base shadow effect seen in screenshots */
-.keycap-shadow-pill {
-  filter: drop-shadow(0 15px 15px rgba(0, 0, 0, 0.25));
-}
-
-/* Rainbow border for Support & Go Pro card */
+/* 中国山水画色系渐变 (石绿 · 石青 · 浅绛赭石) */
 .pro-card-border {
-  background: linear-gradient(135deg, #34d399, #818cf8, #f43f5e);
-  padding: 1.5px;
+  background: linear-gradient(135deg, #3B7A57 0%, #2B5F75 48%, #996644 100%);
+  padding: 2px;
   border-radius: 28px;
 }
 
 .pro-card-inner {
-  background: linear-gradient(135deg, rgba(255, 255, 255, 0.98), rgba(243, 244, 255, 0.95), rgba(255, 241, 245, 0.98));
-  border-radius: 26.5px;
+  background: linear-gradient(135deg, #F0F0F4 0%, #E9ECEF 40%, #F5EFEB 100%);
+  border-radius: 26px;
 }
 
-/* Custom minimal scrollbar */
+/* 山水水墨光晕微染 */
+.shanshui-gradient {
+  background: linear-gradient(135deg, #3B7A57 0%, #2B5F75 50%, #996644 100%);
+}
+
+.shanshui-gradient-text {
+  background: linear-gradient(135deg, #3B7A57 0%, #2B5F75 50%, #996644 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* 极简灰度与滚动条 */
 ::-webkit-scrollbar {
   width: 7px;
   height: 7px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #f4f4f5;
+  background: #F0F0F4;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #d4d4d8;
+  background: #c2c2c9;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #a1a1aa;
+  background: #808080;
 }

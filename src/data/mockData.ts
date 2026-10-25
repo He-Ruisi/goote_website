@@ -4,7 +4,7 @@ export const THEMES: AppTheme[] = [
   {
     id: 'default-noir',
     name: '极简黑曜 (Noir)',
-    subtitle: '开源免费标配',
+    subtitle: '默认免费标配',
     isPaid: false,
     bgClass: 'bg-[#0f141c]',
     panelClass: 'bg-[#151c27]',
@@ -101,10 +101,10 @@ export const DOWNLOAD_OPTIONS: DownloadInfo[] = [
     version: 'v1.4.2',
     size: '26.4 MB',
     formats: [
-      { label: 'Apple Silicon (M1/M2/M3/M4)', file: 'Goote-1.4.2-arm64.dmg', arch: 'aarch64' },
-      { label: 'Intel Mac (x64)', file: 'Goote-1.4.2-x64.dmg', arch: 'x86_64' }
+      { label: 'Apple Silicon (M1/M2/M3/M4)', file: 'Neinote-1.4.2-arm64.dmg', arch: 'aarch64' },
+      { label: 'Intel Mac (x64)', file: 'Neinote-1.4.2-x64.dmg', arch: 'x86_64' }
     ],
-    command: 'brew install --cask goote-app',
+    command: 'brew install --cask neinote-app',
     sha256: '9f83a47b1e8e2194c03b1e326df8018ab3f98c86d8b2e105e4d2931a5472e391'
   },
   {
@@ -114,11 +114,11 @@ export const DOWNLOAD_OPTIONS: DownloadInfo[] = [
     version: 'v1.4.2',
     size: '28.1 MB',
     formats: [
-      { label: 'Windows 64位 安装包 (.msi)', file: 'Goote-1.4.2-x64-setup.msi', arch: 'x64' },
-      { label: '便携免安装绿色版 (.zip)', file: 'Goote-1.4.2-portable.zip', arch: 'portable' },
-      { label: 'Windows ARM64', file: 'Goote-1.4.2-arm64.msi', arch: 'arm64' }
+      { label: 'Windows 64位 安装包 (.msi)', file: 'Neinote-1.4.2-x64-setup.msi', arch: 'x64' },
+      { label: '便携免安装绿色版 (.zip)', file: 'Neinote-1.4.2-portable.zip', arch: 'portable' },
+      { label: 'Windows ARM64', file: 'Neinote-1.4.2-arm64.msi', arch: 'arm64' }
     ],
-    command: 'winget install Goote.Goote',
+    command: 'winget install Neinote.Neinote',
     sha256: 'e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855'
   },
   {
@@ -128,11 +128,11 @@ export const DOWNLOAD_OPTIONS: DownloadInfo[] = [
     version: 'v1.4.2',
     size: '24.9 MB',
     formats: [
-      { label: '通用独立可执行包 (.AppImage)', file: 'Goote-1.4.2.AppImage', arch: 'universal' },
-      { label: 'Debian / Ubuntu (.deb)', file: 'goote_1.4.2_amd64.deb', arch: 'deb' },
-      { label: 'Arch Linux (AUR)', file: 'yay -S goote-bin', arch: 'aur' }
+      { label: '通用独立可执行包 (.AppImage)', file: 'Neinote-1.4.2.AppImage', arch: 'universal' },
+      { label: 'Debian / Ubuntu (.deb)', file: 'neinote_1.4.2_amd64.deb', arch: 'deb' },
+      { label: 'Arch Linux (AUR)', file: 'yay -S neinote-bin', arch: 'aur' }
     ],
-    command: 'flatpak install flathub org.goote.Goote',
+    command: 'flatpak install flathub org.neinote.Neinote',
     sha256: 'a1b2c3d4e5f60718293a4b5c6d7e8f90123456789abcdef0123456789abcdef0'
   },
   {
@@ -142,8 +142,8 @@ export const DOWNLOAD_OPTIONS: DownloadInfo[] = [
     version: 'v1.4.0',
     size: '18.2 MB',
     formats: [
-      { label: '直接下载 APK 安装包', file: 'Goote-v1.4.0.apk', arch: 'arm64-v8a' },
-      { label: '前往 F-Droid 开源市场', file: 'https://f-droid.org/packages/org.goote.app', arch: 'repo' }
+      { label: '直接下载 APK 安装包', file: 'Neinote-v1.4.0.apk', arch: 'arm64-v8a' },
+      { label: '前往应用下载镜像源', file: 'https://downloads.neinote.app/android', arch: 'repo' }
     ],
     sha256: '7c98b234ef018274391abfde6283940172648102937482910482019482910482'
   },
@@ -154,8 +154,8 @@ export const DOWNLOAD_OPTIONS: DownloadInfo[] = [
     version: 'v1.4.0',
     size: '21.5 MB',
     formats: [
-      { label: 'TestFlight 实时公测', file: 'https://testflight.apple.com/join/goote', arch: 'tf' },
-      { label: 'App Store (即将上架)', file: 'https://apps.apple.com/app/goote', arch: 'store' }
+      { label: 'TestFlight 实时公测', file: 'https://testflight.apple.com/join/neinote', arch: 'tf' },
+      { label: 'App Store (即将上架)', file: 'https://apps.apple.com/app/neinote', arch: 'store' }
     ],
     sha256: 'verified-by-apple-sandbox'
   }
@@ -165,7 +165,7 @@ export const PLUGINS_LIST: PluginItem[] = [
   {
     id: 'whisper-local',
     name: 'Local Whisper 离线语音引擎',
-    author: 'Goote Core',
+    author: 'Neinote Core',
     downloads: '42.8k',
     rating: 4.9,
     description: '无需网络，利用端侧芯片即时高精度转录普通话、方言与中英混说。',

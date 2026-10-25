@@ -37,31 +37,33 @@ export const Keycap: React.FC<KeycapProps> = ({
         onClick={onClick}
         className={`keyviz-keycap ${sizeClasses[size]} p-2 cursor-pointer ${
           isGradient 
-            ? 'border-neutral-900 shadow-[0_12px_20px_rgba(168,85,247,0.25)] ring-2 ring-purple-400/50' 
-            : 'border-neutral-900 bg-white'
+            ? 'border-[#2B5F75] shadow-[0_12px_22px_rgba(43,95,117,0.3)] ring-2 ring-[#3B7A57]/60' 
+            : 'border-[#808080] bg-[#F0F0F4]'
         }`}
       >
         {/* Subtle inner top highlight */}
-        <div className="absolute inset-x-1.5 top-1 h-[2px] bg-white/80 rounded-full pointer-events-none" />
+        <div className="absolute inset-x-1.5 top-1 h-[2px] bg-white/70 rounded-full pointer-events-none" />
 
         {subLabel && (
-          <span className="text-[10px] font-bold text-neutral-500 leading-none mb-0.5">
+          <span className="text-[10px] font-bold text-[#808080]/80 leading-none mb-0.5">
             {subLabel}
           </span>
         )}
 
         {icon ? (
-          <div className="text-neutral-900 font-bold">{icon}</div>
+          <div className="text-[#808080] font-bold">{icon}</div>
         ) : (
-          <span className="font-extrabold text-neutral-900 tracking-tight leading-tight">
+          <span className={`font-extrabold tracking-tight leading-tight ${
+            isGradient ? 'text-[#2B5F75]' : 'text-[#808080]'
+          }`}>
             {label}
           </span>
         )}
       </button>
 
-      {/* Optional top-right notification count badge like in Screenshot 2 [del with badge 2] */}
+      {/* Top-right notification badge */}
       {badge !== undefined && (
-        <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-neutral-400 text-white font-mono font-bold text-[10px] flex items-center justify-center shadow-md">
+        <span className="absolute -top-2 -right-2 w-5 h-5 rounded-full bg-[#808080] text-[#F0F0F4] font-mono font-bold text-[10px] flex items-center justify-center shadow-md border border-[#F0F0F4]">
           {badge}
         </span>
       )}
@@ -74,9 +76,9 @@ export const MouseIndicator: React.FC<{ active?: boolean; className?: string }> 
   className = '' 
 }) => {
   return (
-    <div className={`inline-flex flex-col items-center justify-start w-5 h-8 rounded-full border-[2.2px] border-neutral-700 bg-neutral-800 p-0.5 shadow-md ${className}`}>
-      {/* Scroll wheel */}
-      <span className={`w-1 h-2 rounded-full ${active ? 'bg-emerald-400 animate-pulse' : 'bg-neutral-500'}`} />
+    <div className={`inline-flex flex-col items-center justify-start w-5 h-8 rounded-full border-[2.2px] border-[#808080] bg-[#808080]/20 p-0.5 shadow-sm ${className}`}>
+      {/* Scroll wheel in Chinese landscape mineral green (石绿 #3B7A57) */}
+      <span className={`w-1 h-2 rounded-full ${active ? 'bg-[#3B7A57] animate-pulse' : 'bg-[#808080]'}`} />
     </div>
   );
 };
