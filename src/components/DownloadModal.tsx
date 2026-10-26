@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { X, Check, Copy } from 'lucide-react';
 import { Keycap } from './Keycap';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface DownloadModalProps {
   isOpen: boolean;
@@ -10,8 +11,10 @@ interface DownloadModalProps {
 
 export const DownloadModal: React.FC<DownloadModalProps> = ({
   isOpen,
-  onClose
+  onClose,
+  osTarget = 'macos'
 }) => {
+  const { lang, t } = useTranslation();
   const [downloadProgress, setDownloadProgress] = useState(0);
   const [downloadFinished, setDownloadFinished] = useState(false);
   const [copiedSha, setCopiedSha] = useState(false);
@@ -63,9 +66,11 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
         <div className="flex items-center gap-4 mb-6">
           <Keycap label="N" size="md" />
           <div>
-            <h3 className="text-xl font-black text-[#808080]">下载 Neinote v1.4.2</h3>
+            <h3 className="text-xl font-black text-[#808080]">
+              {lang === 'zh' ? '下载 Neinote v1.4.2' : 'Download Neinote v1.4.2'} ({osTarget})
+            </h3>
             <p className="text-xs text-[#808080]/80 font-bold">
-              100% 免费解锁 · 全功能开放 · 本地优先
+              {lang === 'zh' ? '100% 免费解锁 · 全功能开放 · 本地优先' : '100% Free · All Features Unlocked · Local-First'}
             </p>
           </div>
         </div>
@@ -74,7 +79,9 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
         <div className="mb-6 p-4 rounded-2xl bg-[#F0F0F4] border border-[#808080]/30 shadow-sm">
           <div className="flex items-center justify-between text-xs font-bold mb-2">
             <span className="text-[#808080]">
-              {downloadFinished ? '✅ 安装包准备完毕' : '正在从最快镜像源获取...'}
+              {downloadFinished 
+                ? (lang === 'zh' ? '✅ 安装包准备完毕' : '✅ Package Ready for Install') 
+                : (lang === 'zh' ? '正在从最快镜像源获取...' : 'Fetching from fastest CDN mirror...')}
             </span>
             <span className="font-mono text-[#808080] font-black">{downloadProgress}%</span>
           </div>
@@ -88,13 +95,13 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
 
           {downloadFinished && (
             <div className="mt-3 text-xs text-[#808080] flex items-center justify-between font-medium">
-              <span>若下载未自动开始：</span>
+              <span>{lang === 'zh' ? '若下载未自动开始：' : 'If download did not start:'}</span>
               <a
-                href="#"
-                onClick={(e) => { e.preventDefault(); alert('模拟下载已就绪：Neinote 安装包已保存至您的本地。'); }}
+                href="#download"
+                onClick={(e) => { e.preventDefault(); }}
                 className="text-[#3B7A57] font-bold underline"
               >
-                直接点击重试保存
+                {lang === 'zh' ? '直接点击重试保存' : 'Click here to retry'}
               </a>
             </div>
           )}
@@ -102,18 +109,32 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
 
         {/* 3 Step Quickstart */}
         <div className="space-y-2.5 mb-6 text-xs text-[#808080]">
-          <span className="font-bold block mb-1">极速三步上手：</span>
+          <span className="font-bold block mb-1">
+            {lang === 'zh' ? '极速三步上手：' : '3-Step Quick Start:'}
+          </span>
           <div className="p-2.5 rounded-xl bg-[#F0F0F4] border border-[#808080]/30 flex items-start gap-2.5 shadow-sm">
             <span className="w-5 h-5 rounded-full bg-[#808080] text-[#F0F0F4] flex items-center justify-center font-bold text-[10px] shrink-0">1</span>
-            <span>解压并运行 Neinote，指定您本地的纯文本 Markdown 存储目录。</span>
+            <span>
+              {lang === 'zh' 
+                ? '解压并运行 Neinote，指定您本地的纯文本 Markdown 存储目录。' 
+                : 'Extract and launch Neinote, choose your local Markdown directory.'}
+            </span>
           </div>
           <div className="p-2.5 rounded-xl bg-[#F0F0F4] border border-[#808080]/30 flex items-start gap-2.5 shadow-sm">
             <span className="w-5 h-5 rounded-full bg-[#808080] text-[#F0F0F4] flex items-center justify-center font-bold text-[10px] shrink-0">2</span>
-            <span>赋予系统录音权限（用于端侧 Whisper 离线高保真语音速记）。</span>
+            <span>
+              {lang === 'zh' 
+                ? '赋予系统录音权限（用于端侧 Whisper 离线高保真语音速记）。' 
+                : 'Grant microphone permission for high-fidelity offline voice streaming.'}
+            </span>
           </div>
           <div className="p-2.5 rounded-xl bg-[#F0F0F4] border border-[#808080]/30 flex items-start gap-2.5 shadow-sm">
             <span className="w-5 h-5 rounded-full bg-[#808080] text-[#F0F0F4] flex items-center justify-center font-bold text-[10px] shrink-0">3</span>
-            <span>按下 <kbd className="px-1.5 py-0.5 rounded bg-[#808080]/20 font-mono font-bold text-[#808080] text-[11px]">Alt + Space</kbd>，开始你的第一次瞬时灵感捕捉。</span>
+            <span>
+              {lang === 'zh' ? '按下 ' : 'Press '}
+              <kbd className="px-1.5 py-0.5 rounded bg-[#808080]/20 font-mono font-bold text-[#808080] text-[11px]">Alt + Space</kbd>
+              {lang === 'zh' ? '，开始你的第一次瞬时灵感捕捉。' : ' to start capturing ideas instantaneously.'}
+            </span>
           </div>
         </div>
 
@@ -126,7 +147,7 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
             className="flex items-center gap-1 text-[#808080] font-bold hover:underline cursor-pointer ml-2"
           >
             {copiedSha ? <Check className="w-3.5 h-3.5 text-[#3B7A57]" /> : <Copy className="w-3.5 h-3.5" />}
-            <span>{copiedSha ? '已复制' : '复制'}</span>
+            <span>{copiedSha ? (lang === 'zh' ? '已复制' : 'Copied') : (lang === 'zh' ? '复制' : 'Copy')}</span>
           </button>
         </div>
 
@@ -136,7 +157,7 @@ export const DownloadModal: React.FC<DownloadModalProps> = ({
           onClick={onClose}
           className="w-full py-3 text-xs font-bold text-[#F0F0F4] bg-[#808080] hover:bg-[#6e6e6e] rounded-xl transition-all cursor-pointer shadow active:scale-95"
         >
-          完成并关闭
+          {lang === 'zh' ? '完成并关闭' : 'Done & Close'}
         </button>
       </div>
     </div>

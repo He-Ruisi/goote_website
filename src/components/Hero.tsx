@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowDownToLine, Zap, Command } from 'lucide-react';
 import { Keycap, MouseIndicator } from './Keycap';
+import { useTranslation } from '../i18n/LanguageContext';
 
 interface HeroProps {
   onOpenDownload: () => void;
@@ -8,6 +9,7 @@ interface HeroProps {
 }
 
 export const Hero: React.FC<HeroProps> = ({ onOpenDownload }) => {
+  const { t } = useTranslation();
   const [activeKey, setActiveKey] = useState<string>('');
 
   useEffect(() => {
@@ -34,9 +36,9 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload }) => {
           {/* Left Title with floating Mouse Indicator in #808080 */}
           <div>
             <h1 className="text-4xl sm:text-6xl lg:text-[68px] font-black text-[#808080] tracking-tight leading-[1.08]">
-              全链条写作的<br />
+              {t.hero.titleLine1}<br />
               <span className="inline-flex items-center gap-3">
-                瑞士军刀利器
+                {t.hero.titleLine2}
                 <MouseIndicator active={true} className="align-middle inline-flex -mt-2" />
               </span>
             </h1>
@@ -45,7 +47,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload }) => {
           {/* Right Subtext & Action Buttons */}
           <div className="max-w-md lg:text-left space-y-5">
             <p className="text-[#808080]/90 text-sm sm:text-base leading-relaxed font-medium">
-              Neinote 是一个本地优先的碎片化收集、整合与 AI 辅助输入输出软件。自动隐藏的竖状速记窗随时语音录入，Markdown 整合主窗深度产出，<strong>所有功能全部免费解锁</strong>，仅靠大师 UI 与音效主题获取商业支持。
+              {t.hero.desc}
             </p>
 
             <div className="flex items-center gap-3 pt-1">
@@ -55,7 +57,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload }) => {
                 className="px-5 py-2.5 bg-[#808080] hover:bg-[#6e6e6e] text-[#F0F0F4] text-xs sm:text-sm font-bold rounded-xl transition-all flex items-center gap-2 cursor-pointer shadow-sm hover:shadow active:scale-95"
               >
                 <ArrowDownToLine className="w-4 h-4" />
-                <span>免费下载 (全功能解锁)</span>
+                <span>{t.hero.downloadBtn}</span>
               </button>
 
               <a
@@ -63,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenDownload }) => {
                 className="px-4 py-2.5 bg-[#F0F0F4] hover:bg-neutral-100 text-[#808080] text-xs sm:text-sm font-bold rounded-xl border border-[#808080]/40 transition-all flex items-center gap-2 shadow-sm hover:shadow"
               >
                 <Zap className="w-4 h-4 text-[#3B7A57]" />
-                <span>查看双窗口演示</span>
+                <span>{t.hero.demoBtn}</span>
               </a>
             </div>
           </div>
